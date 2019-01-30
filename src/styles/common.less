@@ -1,0 +1,383 @@
+/* @import "./variable.less"; */
+/** -----------other start--------------- **/
+.clearfix:after {
+  content: "\200B";
+  display: block;
+  height: 0;
+  clear: both;
+  line-height: 0;
+  font-size: 0;
+  visibility: hidden;
+}
+
+
+.pointer {
+  cursor: pointer;
+}
+
+
+.full{
+  width: 100%;
+  height: 100%;
+}
+.wfull{
+  width: 100%;
+}
+.h50vh{
+  height: 50vh;
+}
+.h100vh{
+  height: 100vh;
+}
+.hfull{
+  height: 100%;
+}
+
+/* 蒙层样式 */
+.fwh{
+  position: absolute;
+  z-index: 3;
+  top:0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  background-color: rgba(0,0,0,.5)
+}
+
+/*禁止文本选中*/
+.text-able-select{
+
+  -webkit-user-select:text;
+  -moz-user-select:text;
+  -ms-user-select:text;
+  user-select:text;
+}
+
+.input-placeholder{
+  // 用于设置小程序内的placeholder style，设置input的placeholder-class属性为input-placeholder
+  color: @color_text_999;
+  font-size: 14px;
+}
+button::after{border:0}//小程序去掉button的边框
+
+
+
+.clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}
+/** -----------other end--------------- **/
+
+
+
+/** -----------layout start--------------- **/
+
+.df{
+  display: flex
+}
+
+.block {
+  display: block;
+}
+
+
+.inlineBlock {
+  display: block;
+}
+
+.flex__item {
+  flex: 1;
+}
+
+
+.f1{
+  flex: 1;
+}
+.f2{
+  flex: 2;
+}
+.f3{
+  flex:3;
+}
+.f4{
+  flex:4
+}
+
+.fxc{
+  justify-content: center;
+}
+.fxl{
+   justify-content: flex-start;
+}
+.fxr{
+  justify-content: flex-end;
+}
+.fyc{
+  align-items: center;
+}
+
+.fxyc{
+  justify-content: center;
+  align-items: center;
+}
+
+.fyb{
+  align-self:flex-end;
+}
+
+.fsb{
+  justify-content: space-between;
+}
+
+.fsbyc{
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.fdy{
+  flex-direction:column;
+}
+
+.fdx{
+  flex-direction:row;
+}
+
+.fww{
+  flex-wrap: wrap;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+
+
+/** -----------layout end--------------- **/
+
+
+/** -----------position start--------------- **/
+.por{
+  position: relative;
+}
+
+.poa{
+  position: absolute;
+}
+.pof{
+  position: fixed;
+}
+
+
+
+/** -----------position end--------------- **/
+
+
+
+/** -----------font start--------------- **/
+.tac{
+  text-align: center
+}
+.tar{
+  text-align: right;
+}
+.tal{
+  text-align: left;
+}
+.taj{
+  text-align:justify;
+}
+
+.h1{
+  line-height: 1;
+  font-size: 44rpx;
+  font-weight:bold;
+  color: @primary
+}
+
+.h2{
+  line-height: 1;
+  font-size: 34rpx;
+  font-weight:bold;
+  color: @primary
+
+}
+.h3{
+  line-height: 1;
+  font-size: 30rpx;
+  color: @primary
+}
+.h4{
+  line-height: 1;
+  font-size: 26rpx;
+  color: @primary
+}
+.h5{
+  line-height: 1;
+  font-size: 24rpx;
+  color: @primary
+}
+.h6{
+  line-height: 1;
+  font-size: 20rpx;
+  color: @primary
+}
+
+
+.fs16{
+  line-height: 1;
+  font-size: 16rpx;
+}
+
+.fs18{
+  line-height: 1;
+  font-size: 18rpx;
+}
+
+.fs20{
+  line-height: 1;
+  font-size: 20rpx;
+}
+
+.fs24{
+  line-height: 1;
+  font-size: 24rpx;
+}
+.fs25{
+  line-height: 1;
+  font-size: 25rpx;
+}
+.fs26{
+  line-height: 1;
+  font-size: 26rpx;
+}
+.fs28{
+  line-height: 1;
+  font-size: 28rpx;
+}
+.fs30{
+  line-height: 1;
+  font-size: 30rpx;
+}
+.fs32{
+  line-height: 1;
+  font-size: 32rpx;
+}
+.fs34{
+  line-height: 1;
+  font-size: 34rpx;
+}
+.fs34b{
+  line-height: 1;
+  font-size: 34rpx;
+  font-weight:bold;
+}
+/** -----------font end--------------- **/
+
+
+.pl-5 {
+  padding-left: 5px;
+}
+.pr-5 {
+  padding-right: 5px;
+}
+
+.pl-10 {
+  padding-left: 10px;
+}
+.pr-10 {
+  padding-right: 10px;
+}
+
+.pl-15 {
+  padding-left: 15px;
+}
+.pr-15 {
+  padding-right: 15px;
+}
+
+.pl-20 {
+  padding-left: 20px;
+}
+.pr-20 {
+  padding-right: 20px;
+}
+
+.px-10 {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.py-10 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.px-20 {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.py-20 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.ml-5 {
+  margin-left: 5px;
+}
+.mr-5 {
+  margin-right: 5px;
+}
+
+.ml-10 {
+  margin-left: 10px;
+}
+.mr-10 {
+  margin-right: 10px;
+}
+
+.ml-15 {
+  margin-left: 15px;
+}
+.mr-15 {
+  margin-right: 15px;
+}
+
+.ml-20 {
+  margin-left: 20px;
+}
+.mr-20 {
+  margin-right: 20px;
+}
+
+.mx-10 {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.my-10 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.mx-20 {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.my-20 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

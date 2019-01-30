@@ -1,0 +1,57 @@
+<template>
+  <div class="container">
+    <div class="title">英国女王大学</div>
+    <div class="sub-title">2019年语言课</div>
+    <div class="article1">
+      根据学生自身语音水平和学位课程要求，语音课课程长度分别为10周6周和4周
+    </div>
+    <div class="article2">
+      点击开始查询你的语言课课程长度
+    </div>
+    <div class="start-btn" @click="startHandler">
+        开始
+    </div>
+  </div>
+</template>
+<script>
+  export default {
+    data () {
+      return {
+  
+      }
+    },
+    computed: {
+  
+    },
+    components: {
+  
+    },
+    mounted () {
+  
+    },
+    onShow () {
+  
+    },
+    methods: {
+      startHandler: function () {
+        console.log('开始')
+      }
+    }
+  }
+</script>
+
+<style lang="less" scope>
+.container {
+  .start-btn {
+      display: inline-block;
+      width: 260rpx;
+      height: 80rpx;
+      line-height: 80rpx;
+      border-radius: 40rpx;
+      text-align: center;
+      color: @color-white;
+      background-color: @light-primary;
+      box-shadow: 0 10rpx 30rpx rgba(243,163,0,0.3);
+    }
+}
+</style>
