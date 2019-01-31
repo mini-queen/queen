@@ -1,0 +1,252 @@
+<template>
+  <div class="container">
+    <div class="first-wrapper">
+      <div class="first-title h1">第一步</div>
+      <div class="first-desp h2">选择您的学位课程雅思要求</div>
+      <div class="select-score">
+        <div class="field location field-border">
+          <span class="title">学位课程要求</span>
+          <div class="content">
+            <picker class="picker"  @change="bindPickerChange" mode="selector" :value="index" range-key="name" :range="objectArray">
+              <span>{{selectName || '请选择'}}</span>
+            </picker>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="second-wrapper">
+      <div class="second-title h1">第二步</div>
+      <div class="second-desp h2">填写您的雅思成绩</div>
+      <div class="sub-desp h3">(需是一张成绩单，不接受拼分)</div>
+    </div>
+    <div class="fields">
+      <div class="field field-border">
+        <span class="title">雅思总分：</span>
+        <FormField
+          name="totalScore"
+          :value="formData.totalScore"
+          placeholder="请填写雅思总分"
+          @onInputBlur="onInputBlur"
+        />
+      </div>
+      <div class="field">
+        <span class="title" decode="emsp">听&emsp;&emsp;力：</span>
+        <FormField
+          name="listeningScore"
+          :value="formData.listeningScore"
+          placeholder="请填写听力分数"
+          @onInputBlur="onInputBlur"
+        />
+      </div>
+      <div class="field">
+        <span class="title" decode="emsp">阅&emsp;&emsp;读：</span>
+        <FormField
+          name="readingScore"
+          :value="formData.readingScore"
+          placeholder="请填写阅读分数"
+          @onInputBlur="onInputBlur"
+        />
+      </div>
+      <div class="field">
+        <span class="title" decode="emsp">写&emsp;&emsp;作：</span>
+        <FormField
+          name="writingScore"
+          :value="formData.writingScore"
+          placeholder="请填写写作分数"
+          @onInputBlur="onInputBlur"
+        />
+      </div>
+      <div class="field">
+        <span class="title" decode="emsp">口&emsp;&emsp;语：</span>
+        <FormField
+          name="speakingScore"
+          :value="formData.speakingScore"
+          placeholder="请填写口语分数"
+          @onInputBlur="onInputBlur"
+        />
+      </div>
+      
+    </div>
+    <div class="sure-info">
+      <comCheckbox :value="formData.isSubmit" @changeHandle="checkHandler">  你是否已向大学提交本科学位证+本科毕业证+大学四年完整成绩单+已缴纳录取通知书上要求的£400押金（如申请专业有押金要求）?</comCheckbox>
+    </div>
+    <div class="view-btn" @click="resultHandler">
+        查看结果
+    </div>
+  </div>
+</template>
+<script>
+  import FormField from '@/components/FormField'
+  import comCheckbox from '@/components/checkbox'
+  export default {
+    data () {
+      return {
+        formData: {
+          requireId: -1,
+          isSubmit: false
+        },
+        selectName: '',
+        objectArray: [
+          {
+            id: 0,
+            name: '雅思总分6.5，且各单项不低于5.5'
+          },
+          {
+            id: 1,
+            name: '雅思总分6.0，且各单项不低于5.5'
+          },
+          {
+            id: 2,
+            name: '雅思总分6.5，且各单项不低于6.0'
+          }
+        ]
+      }
+    },
+    computed: {
+  
+    },
+    components: {
+      FormField, comCheckbox
+    },
+    mounted () {
+  
+    },
+    onShow () {
+  
+    },
+    methods: {
+      resultHandler () {
+        console.log('结果', this.formData)
+        if (this.formData.requireId === -1) {
+          return wx.showToast({title: '请选择学位课程要求', icon: 'none'})
+        }
+        if (!this.formData.totalScore) {
+          return wx.showToast({title: '请填写雅思总分', icon: 'none'})
+        }
+        if (!this.formData.listeningScore) {
+          return wx.showToast({title: '请填写听力分数', icon: 'none'})
+        }
+        if (!this.formData.readingScore) {
+          return wx.showToast({title: '请填写阅读分数', icon: 'none'})
+        }
+        if (!this.formData.writingScore) {
+          return wx.showToast({title: '请填写写作分数', icon: 'none'})
+        }
+        if (!this.formData.speakingScore) {
+          return wx.showToast({title: '请填写口语分数', icon: 'none'})
+        }
+        wx.navigateTo({
+          url: '/pages/infoShow/main'
+        })
+      },
+      bindPickerChange (e) {
+        let index = e.target.value
+        this.formData.requireId = this.objectArray[index].id // 这个id就是选中项的id
+        this.selectName = this.objectArray[index].name
+      },
+      onInputBlur (field) {
+        this.formData[field.name] = field.value
+      },
+      checkHandler () {
+        this.formData.isSubmit = !this.formData.isSubmit
+      }
+    }
+  }
+</script>
+
+<style lang="less" scope>
+.container {
+  .first-wrapper {
+    padding-top: 10rpx;
+    padding-bottom: 30rpx;
+    .first-title {
+      margin: 20rpx;
+    }
+    .first-desp{
+      margin-bottom: 30rpx;
+    }
+    .select-score {
+
+    }
+  }
+  .second-wrapper {
+    // padding-top: 10rpx;
+    margin-bottom: 10rpx;
+    .second-title {
+      margin: 20rpx;
+    }
+    .second-desp{
+
+    }
+    .sub-desp {
+      margin: 8rpx;
+    }
+  }
+  .sure-info {
+    margin-top: 20rpx;
+    font-size: 30rpx;
+    text-align: left;
+    color: blueviolet;
+    padding: 0 20rpx;
+  }
+  .view-btn {
+      display: inline-block;
+      width: 260rpx;
+      height: 80rpx;
+      line-height: 80rpx;
+      margin-top: 40rpx;
+      border-radius: 40rpx;
+      text-align: center;
+      color: @color-white;
+      background-color: @light-primary;
+      box-shadow: 0 10rpx 30rpx rgba(243,163,0,0.3);
+  }
+
+  .fields {
+    margin-top: 30rpx;
+  }
+
+  .field {
+    // width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 30rpx;
+    background-color: #FFFFFF;
+    border-bottom: 1rpx solid #eeeeee;
+    text-align: left;
+    &.field-border {
+      border-top: 1rpx solid #eeeeee;
+    }
+  }
+
+  .field.location {
+    justify-content: space-between;
+  }
+
+  .field.location .content {
+    width: calc(100% - 190rpx);
+    display: flex;
+    align-items: center;
+    justify-content:flex-end;
+    text-align:right;
+    color: #999999;
+  }
+
+  .field.location .picker {
+    width: 100%;
+  }
+
+  .field .title {
+    width: 190rpx;
+    height: auto;
+    font-size: 30rpx;
+    color: #333333;
+  }
+
+  .field .content {
+    flex: 1;
+    font-size: 30rpx;
+  }
+}
+</style>

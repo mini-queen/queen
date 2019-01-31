@@ -46,3 +46,24 @@ npm run dev
 # 在微信开发者工具打开上一步编译好的dist文件
 
 ```
+数据字典：
+	输入页面
+		学位课程要求： requireId   0/1/2 (分别对应label: 雅思总分6.5，且各单项不低于5.5;雅思总分6.0，且各单项不低于5.5;雅思总分6.5，且各单项不低于6.0)
+		雅思总分： totalScore
+		听力： listeningScore
+		阅读： readingScore
+		写作： writingScore
+		口语： speakingScore
+		是否已经向大学提交本科学位证xxxx: isSubmit
+
+	结果页面
+		课程时长（周）：  period
+		申请截止日期： applyDeadline
+		确认截止日期：sureDeadline
+		最晚抵校日期：arrivalDate
+		课程日期：courseDate
+		学费：fee
+		
+	
+任务：
+	  接口 云开发 授权 整理删文件

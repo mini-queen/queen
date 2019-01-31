@@ -1,12 +1,13 @@
 <template>
   <div class="container">
-    <div class="title">英国女王大学</div>
-    <div class="sub-title">2019年语言课</div>
+    <!-- <a href="/pages/permission/main" class="item-explain">去往授权页</a> -->
+    <div class="title h1">英国女王大学</div>
+    <div class="sub-title h2">2019年语言课</div>
     <div class="article1">
-      根据学生自身语音水平和学位课程要求，语音课课程长度分别为10周6周和4周
+      根据学生自身语音水平和学位课程要求，语音课课程长度分别为10周6周和4周。
     </div>
     <div class="article2">
-      点击开始查询你的语言课课程长度
+      点击开始查询你的语言课课程长度：
     </div>
     <div class="start-btn" @click="startHandler">
         开始
@@ -34,7 +35,9 @@
     },
     methods: {
       startHandler: function () {
-        console.log('开始')
+        wx.navigateTo({
+          url: '/pages/infoInput/main'
+        })
       }
     }
   }
@@ -42,6 +45,23 @@
 
 <style lang="less" scope>
 .container {
+  .title {
+    padding: 30rpx 0;
+  }
+  .sub-title {
+    padding-bottom: 80rpx;
+  }
+  .article1 {
+    font-size: 36rpx;
+    text-align: left;
+    text-indent: 2em;
+    padding: 20rpx;
+  }
+  .article2 {
+    font-size: 36rpx;
+    margin-top: 30rpx;
+    margin-bottom: 80rpx;
+  }
   .start-btn {
       display: inline-block;
       width: 260rpx;
