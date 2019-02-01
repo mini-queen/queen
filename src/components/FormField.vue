@@ -1,6 +1,6 @@
 <template>
   <input
-    type="type ? type : 'text'"
+    :type="type"
     class="input"
     :value="value"
     :disabled="disabled"
@@ -15,7 +15,10 @@
     name: 'FormField',
     props: {
       name: String,
-      type: String,
+      type: {
+        type: String,
+        default: 'text'
+      },
       value: String,
       placeholder: String,
       disabled: {

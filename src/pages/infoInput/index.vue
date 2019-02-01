@@ -23,6 +23,7 @@
       <div class="field field-border">
         <span class="title">雅思总分：</span>
         <FormField
+          type="digit"
           name="totalScore"
           :value="formData.totalScore"
           placeholder="请填写雅思总分"
@@ -32,6 +33,7 @@
       <div class="field">
         <span class="title" decode="emsp">听&emsp;&emsp;力：</span>
         <FormField
+          type="digit"
           name="listeningScore"
           :value="formData.listeningScore"
           placeholder="请填写听力分数"
@@ -41,6 +43,7 @@
       <div class="field">
         <span class="title" decode="emsp">阅&emsp;&emsp;读：</span>
         <FormField
+          type="digit"
           name="readingScore"
           :value="formData.readingScore"
           placeholder="请填写阅读分数"
@@ -50,6 +53,7 @@
       <div class="field">
         <span class="title" decode="emsp">写&emsp;&emsp;作：</span>
         <FormField
+          type="digit"
           name="writingScore"
           :value="formData.writingScore"
           placeholder="请填写写作分数"
@@ -59,6 +63,7 @@
       <div class="field">
         <span class="title" decode="emsp">口&emsp;&emsp;语：</span>
         <FormField
+          type="digit"
           name="speakingScore"
           :value="formData.speakingScore"
           placeholder="请填写口语分数"
@@ -158,9 +163,9 @@
 .container {
   .first-wrapper {
     padding-top: 10rpx;
-    padding-bottom: 30rpx;
+    padding-bottom: 50rpx;
     .first-title {
-      margin: 20rpx;
+      margin: 30rpx;
     }
     .first-desp{
       margin-bottom: 30rpx;
@@ -173,7 +178,7 @@
     // padding-top: 10rpx;
     margin-bottom: 10rpx;
     .second-title {
-      margin: 20rpx;
+      margin: 30rpx;
     }
     .second-desp{
 
@@ -183,7 +188,7 @@
     }
   }
   .sure-info {
-    margin-top: 20rpx;
+    margin-top: 60rpx;
     font-size: 30rpx;
     text-align: left;
     color: blueviolet;
@@ -194,7 +199,8 @@
       width: 260rpx;
       height: 80rpx;
       line-height: 80rpx;
-      margin-top: 40rpx;
+      margin-top: 80rpx;
+      margin-bottom: 80rpx;
       border-radius: 40rpx;
       text-align: center;
       color: @color-white;

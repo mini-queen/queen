@@ -51,6 +51,11 @@
         />
       </div>
     </div>
+    <div class="bottom-tips">
+      <span class="info">* 更多语言课详情请阅读微信文章或官网</span>
+      <span class="site" selectable='true' @tap='copy'>* {{site}}</span>
+      <span class="duty" decode="copy">* &copy; 2019 英国女王大学 版权所有</span>
+    </div>
   </div>
 </template>
 <script>
@@ -66,7 +71,8 @@
           arrivalDate: '7月1日',
           courseDate: '6月24日 — 8月30日',
           fee: 4250
-        }
+        },
+        site: 'http://www.qub.ac.uk'
       }
     },
     computed: {
@@ -84,6 +90,18 @@
     methods: {
       startHandler: function () {
         console.log('开始')
+      },
+      copy: function (e) {
+        console.log(e)
+        wx.setClipboardData({
+          data: this.site,
+          success: function (res) {
+            wx.showToast({
+              title: '复制成功',
+              icon: 'none'
+            })
+          }
+        })
       }
     }
   }
@@ -134,6 +152,18 @@
   .field .content {
     flex: 1;
     font-size: 30rpx;
+  }
+
+  .bottom-tips {
+    position: fixed;
+    left: 30rpx;
+    bottom: 30rpx;
+    font-size: 28rpx;
+    color: #333333;
+    .info,.site,.duty {
+      text-align: left;
+      display: block;
+    }
   }
 }
 </style>
