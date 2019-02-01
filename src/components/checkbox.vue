@@ -85,8 +85,8 @@ export default {
   &.is-checked {
     .checkbox-input {
       .checkbox-inner {
-        background-color: @border_yellow;
-        border-color: @border_yellow;
+        background-color: @light-primary;
+        border-color: @light-primary;
         &:after {
           transform: rotate(45deg) scaleY(1);
         }
@@ -94,11 +94,11 @@ export default {
     }
   }
   &.disabled {
-    color: #D8D8D8;
+    color: @border-color;
     .checkbox-input {
       .checkbox-inner {
-        background: #D8D8D8;
-        border: 1rpx solid #D8D8D8;
+        background: @border-color;
+        border: 1rpx solid @border-color;
       }
     }
   }

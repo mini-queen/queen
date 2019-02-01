@@ -118,11 +118,11 @@
     flex-wrap: wrap;
     align-items: center;
     padding: 30rpx;
-    background-color: #FFFFFF;
-    border-bottom: 1rpx solid #eeeeee;
+    background-color: @color-white;
+    border-bottom: 1rpx solid @line;
     text-align: left;
     &.field-border {
-      border-top: 1rpx solid #eeeeee;
+      border-top: 1rpx solid @line;
     }
   }
 
@@ -146,7 +146,7 @@
     width: 290rpx;
     height: auto;
     font-size: 30rpx;
-    color: #333333;
+    color: @text;
   }
 
   .field .content {
@@ -156,11 +156,13 @@
 
   .bottom-tips {
     position: fixed;
-    left: 30rpx;
+    left: 50%;
+    transform: translateX(-50%);
     bottom: 30rpx;
-    font-size: 28rpx;
-    color: #333333;
+    font-size: @fsbase;
+    color: @grey;
     .info,.site,.duty {
+      width: 500rpx;
       text-align: left;
       display: block;
     }

@@ -73,7 +73,7 @@
       
     </div>
     <div class="sure-info">
-      <comCheckbox :value="formData.isSubmit" @changeHandle="checkHandler">  你是否已向大学提交本科学位证+本科毕业证+大学四年完整成绩单+已缴纳录取通知书上要求的£400押金（如申请专业有押金要求）?</comCheckbox>
+      <comCheckbox :value="formData.isSubmit" @changeHandle="checkHandler">  您是否已向大学提交本科学位证+本科毕业证+大学四年完整成绩单+已缴纳录取通知书上要求的£400押金（如申请专业有押金要求）?</comCheckbox>
     </div>
     <div class="view-btn" @click="resultHandler">
         查看结果
@@ -168,7 +168,7 @@
       margin: 30rpx;
     }
     .first-desp{
-      margin-bottom: 30rpx;
+      margin-bottom: 80rpx;
     }
     .select-score {
 
@@ -191,25 +191,26 @@
     margin-top: 60rpx;
     font-size: 30rpx;
     text-align: left;
-    color: blueviolet;
+    color: @btn-gray;
     padding: 0 20rpx;
   }
   .view-btn {
       display: inline-block;
-      width: 260rpx;
-      height: 80rpx;
-      line-height: 80rpx;
+      width: 61.8%;
+      // padding: 0 60rpx;
+      height: 90rpx;
+      line-height: 90rpx;
+      border-radius: 45rpx;
       margin-top: 80rpx;
       margin-bottom: 80rpx;
-      border-radius: 40rpx;
       text-align: center;
       color: @color-white;
+      font-size: @fsh2;
       background-color: @light-primary;
-      box-shadow: 0 10rpx 30rpx rgba(243,163,0,0.3);
   }
 
   .fields {
-    margin-top: 30rpx;
+    margin-top: 80rpx;
   }
 
   .field {
@@ -218,11 +219,11 @@
     flex-wrap: wrap;
     align-items: center;
     padding: 30rpx;
-    background-color: #FFFFFF;
-    border-bottom: 1rpx solid #eeeeee;
+    background-color: @color-white;
+    border-bottom: 1rpx solid @line;
     text-align: left;
     &.field-border {
-      border-top: 1rpx solid #eeeeee;
+      border-top: 1rpx solid @line;
     }
   }
 
@@ -236,7 +237,7 @@
     align-items: center;
     justify-content:flex-end;
     text-align:right;
-    color: #999999;
+    color: @disabled;
   }
 
   .field.location .picker {
@@ -247,7 +248,7 @@
     width: 190rpx;
     height: auto;
     font-size: 30rpx;
-    color: #333333;
+    color: @text;
   }
 
   .field .content {

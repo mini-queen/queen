@@ -53,11 +53,6 @@
   user-select:text;
 }
 
-.input-placeholder{
-  // 用于设置小程序内的placeholder style，设置input的placeholder-class属性为input-placeholder
-  color: @color_text_999;
-  font-size: 14px;
-}
 button::after{border:0}//小程序去掉button的边框
 
 
@@ -205,16 +200,16 @@ button::after{border:0}//小程序去掉button的边框
 
 .h1{
   line-height: 1;
-  font-size: 44rpx;
-  font-weight:bold;
+  font-size: @fsbig;
+  // font-weight:bold;
   color: @primary
 }
 
 .h2{
   line-height: 1;
-  font-size: 34rpx;
-  font-weight:bold;
-  color: @primary
+  font-size: @fsh1;
+  // font-weight:bold;
+  color: @fcolor
 
 }
 .h3{

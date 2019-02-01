@@ -74,21 +74,20 @@
     .logo {
       margin-top: 116rpx;
       width: 400rpx;
-      // height: auto;
     }
   }
   
   .sure-btn {
       display: inline-block;
-      // width: 260rpx;
-      padding: 0 50rpx;
-      height: 80rpx;
-      line-height: 80rpx;
-      border-radius: 40rpx;
+      width: 61.8%;
+      // padding: 0 60rpx;
+      height: 90rpx;
+      line-height: 90rpx;
+      border-radius: 45rpx;
       text-align: center;
       color: @color-white;
+      font-size: @fsh2;
       background-color: @light-primary;
-      box-shadow: 0 10rpx 30rpx rgba(243,163,0,0.3);
     }
 }
 </style>

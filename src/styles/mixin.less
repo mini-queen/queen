@@ -1,24 +1,4 @@
-.font-bold() {
-  font-weight: bold;
-}
-.font-rest() {
-  font-weight: normal;
-}
-.font-0() {
-  font-size:0;
-}
-
-.ellipsis() {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.ellipsis-clamp( @num ) {
-  text-overflow: ellipsis;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: @num;
-  -webkit-box-orient: vertical;
-  word-break: break-all;
+.font-base() {
+  color: @fcolor;
+  font-size: @fsh2;
 }

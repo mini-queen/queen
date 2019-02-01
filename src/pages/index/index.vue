@@ -52,31 +52,36 @@
 .container {
   .title {
     padding: 30rpx 0;
+    margin-top: 60rpx;
   }
   .sub-title {
     padding-bottom: 80rpx;
   }
   .article1 {
-    font-size: 36rpx;
+    .font-base();
+    text-align: left;
+    text-indent: 2em;
+    padding: 20rpx;
+    line-height: 60rpx;
+  }
+  .article2 {
+    .font-base();
+    margin-bottom: 80rpx;
     text-align: left;
     text-indent: 2em;
     padding: 20rpx;
   }
-  .article2 {
-    font-size: 36rpx;
-    margin-top: 30rpx;
-    margin-bottom: 80rpx;
-  }
   .start-btn {
       display: inline-block;
-      width: 260rpx;
-      height: 80rpx;
-      line-height: 80rpx;
-      border-radius: 40rpx;
+      width: 61.8%;
+      // padding: 0 60rpx;
+      height: 90rpx;
+      line-height: 90rpx;
+      border-radius: 45rpx;
       text-align: center;
       color: @color-white;
+      font-size: @fsh2;
       background-color: @light-primary;
-      box-shadow: 0 10rpx 30rpx rgba(243,163,0,0.3);
     }
 }
 </style>

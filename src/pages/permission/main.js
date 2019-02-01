@@ -7,7 +7,7 @@ export default {
   config: {
     'navigationBarBackgroundColor': '#ffffff',
     'navigationBarTextStyle': 'black',
-    'navigationBarTitleText': '授权页',
+    'navigationBarTitleText': '登录授权',
     'backgroundColor': '#eeeeee',
     'backgroundTextStyle': 'light'
   }
