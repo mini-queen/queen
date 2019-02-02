@@ -117,10 +117,11 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    padding: 30rpx;
+    padding: 0 30rpx;
     background-color: @color-white;
     border-bottom: 1rpx solid @line;
     text-align: left;
+    min-height: 100rpx;
     &.field-border {
       border-top: 1rpx solid @line;
     }
@@ -144,7 +145,8 @@
 
   .field .title {
     width: 290rpx;
-    height: auto;
+    height: 60rpx;
+    line-height: 60rpx;
     font-size: 30rpx;
     color: @text;
   }

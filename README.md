@@ -67,3 +67,6 @@ npm run dev
 	
 任务：
 	  云开发 接口  整理删文件(页面继续优化) appid(wx4571759be962547d)
+
+文档：
+	mpvue使用云开发   https://segmentfault.com/a/1190000016641238   

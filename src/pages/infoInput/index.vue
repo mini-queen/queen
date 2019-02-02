@@ -8,7 +8,7 @@
           <span class="title">学位课程要求</span>
           <div class="content">
             <picker class="picker"  @change="bindPickerChange" mode="selector" :value="index" range-key="name" :range="objectArray">
-              <span>{{selectName || '请选择'}}</span>
+              <span class="packer-label">{{selectName || '请选择'}}</span>
             </picker>
           </div>
         </div>
@@ -218,10 +218,11 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    padding: 30rpx;
+    padding: 0 30rpx;
     background-color: @color-white;
     border-bottom: 1rpx solid @line;
     text-align: left;
+    min-height: 100rpx;
     &.field-border {
       border-top: 1rpx solid @line;
     }
@@ -246,7 +247,8 @@
 
   .field .title {
     width: 190rpx;
-    height: auto;
+    height: 60rpx;
+    line-height: 60rpx;
     font-size: 30rpx;
     color: @text;
   }
@@ -254,6 +256,9 @@
   .field .content {
     flex: 1;
     font-size: 30rpx;
+    .packer-label {
+      vertical-align: middle;
+    }
   }
 }
 </style>
