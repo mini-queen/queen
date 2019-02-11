@@ -70,7 +70,7 @@
           @onInputBlur="onInputBlur"
         />
       </div>
-      
+
     </div>
     <div class="sure-info">
       <comCheckbox :value="formData.isSubmit" @changeHandle="checkHandler">  您是否已向大学提交本科学位证+本科毕业证+大学四年完整成绩单+已缴纳录取通知书上要求的£400押金（如申请专业有押金要求）?</comCheckbox>
@@ -108,16 +108,16 @@
       }
     },
     computed: {
-  
+
     },
     components: {
       FormField, comCheckbox
     },
     mounted () {
-  
+
     },
     onShow () {
-  
+
     },
     methods: {
       resultHandler () {
@@ -140,9 +140,12 @@
         if (!this.formData.speakingScore) {
           return wx.showToast({title: '请填写口语分数', icon: 'none'})
         }
-        wx.navigateTo({
-          url: '/pages/infoShow/main'
+        wx.cloud.callFunction({name: 'course', data: this.formData}).then((res) => {
+          console.log('res>>', res)
         })
+        /* wx.navigateTo({
+          url: '/pages/infoShow/main'
+        }) */
       },
       bindPickerChange (e) {
         let index = e.target.value

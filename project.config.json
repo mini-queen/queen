@@ -7,10 +7,11 @@
 		"minified": true,
 		"newFeature": true
 	},
-	"miniprogramRoot": "./dist/",
+	"miniprogramRoot": "dist/",
 	"compileType": "miniprogram",
-	"appid": "",
+	"appid": "wx4571759be962547d",
 	"projectname": "queen",
+    "cloudfunctionRoot": "/static/functions/",
 	"condition": {
 		"search": {
 			"current": -1,

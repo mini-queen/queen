@@ -18,14 +18,14 @@
   export default {
     data () {
       return {
-  
+
       }
     },
     computed: {
-  
+
     },
     components: {
-  
+
     },
     mounted () {
       let token = wx.getStorageSync('token')
@@ -36,7 +36,7 @@
       }
     },
     onShow () {
-  
+
     },
     methods: {
       startHandler: function () {

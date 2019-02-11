@@ -7,6 +7,7 @@ Vue.use(isLogin)
 Vue.config.productionTip = false
 App.mpType = 'app'
 Vue.prototype.$store = store
+wx.cloud.init({ traceUser: true })
 
 const app = new Vue(App)
 app.$mount()
