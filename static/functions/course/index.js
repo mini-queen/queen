@@ -89,9 +89,10 @@ const getCourse = async (courseId) => {
   if (courseId) {
     const db = cloud.database()
     const _ = db.command
-    const course = await db.collection('course').where({
+    let course = await db.collection('course').where({
       courseNum: _.in(courseId)
     }).get()
+    if (course && course.data) { course = course.data }
     return course
   } else {
     return []
