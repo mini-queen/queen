@@ -1,4 +1,4 @@
-# wxmpMaterialShop
+# queen
 
 > a mini project for queen
 
