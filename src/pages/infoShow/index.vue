@@ -6,7 +6,7 @@
         <span class="title">学习课程时长：</span>
         <FormField
           name="period"
-          :value="formData.period+' 周'"
+          :value="formData.period+' 周  ' + casMap[formData.cas]"
           :disabled="true"
         />
       </div>
@@ -60,23 +60,29 @@
 </template>
 <script>
   import FormField from '@/components/FormField'
-
+  import { mapGetters } from 'vuex'
   export default {
     data () {
       return {
-        formData: {
-          period: '3',
-          applyDeadline: '5月17日',
-          sureDeadline: '5月24日',
-          arrivalDate: '7月1日',
-          courseDate: '6月24日 — 8月30日',
-          fee: 4250
+        // formData: {
+        //   period: '3',
+        //   applyDeadline: '5月17日',
+        //   sureDeadline: '5月24日',
+        //   arrivalDate: '7月1日',
+        //   courseDate: '6月24日 — 8月30日',
+        //   fee: 4250
+        // },
+        casMap: {
+          'single': '单个CAS',
+          'union': '联合CAS'
         },
         site: 'http://www.qub.ac.uk'
       }
     },
     computed: {
-  
+      ...mapGetters({
+        formData: 'courseInfo'
+      })
     },
     components: {
       FormField
@@ -88,9 +94,6 @@
   
     },
     methods: {
-      startHandler: function () {
-        console.log('开始')
-      },
       copy: function (e) {
         console.log(e)
         wx.setClipboardData({
