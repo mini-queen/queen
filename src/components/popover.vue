@@ -1,5 +1,5 @@
 <template>
-    <div class="popover-wrapper" :class="[isShow?'show':'',isAnim?'anim':'']">
+    <div class="popover-wrapper" :class="[isShow?'show':'',isAnim?'anim':'']" :catchtouchmove="true">
         <div class="popover-body" :class="[className, popType]">
             <div class="popover-header">
                 <slot name="title"></slot>
@@ -77,6 +77,7 @@ export default {
     -webkit-transform: scale(1);
   }
 }
+
 .popover-wrapper {
   position: fixed;
   z-index: 98;
@@ -103,7 +104,6 @@ export default {
     }
   }
   .promotional.popover-body {
-    top: calc( 50% - 310rpx);
     .popover-footer {
       color: @light-primary;
     }
@@ -121,8 +121,9 @@ export default {
   .popover-body {
     position: absolute;
     z-index: 100;
-    top: calc( 50% - 200rpx);
-    left: calc(50% - 275rpx);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
     width: 550rpx;
     font-size: @fs30;
     color: @primary;

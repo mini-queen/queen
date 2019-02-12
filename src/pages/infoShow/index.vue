@@ -6,7 +6,7 @@
         <span class="title">学习课程时长：</span>
         <FormField
           name="period"
-          :value="formData.period+' 周  ' + casMap[formData.cas]"
+          :value="formData.period+' 周  ' + (casMap[formData.cas] || '')"
           :disabled="true"
         />
       </div>

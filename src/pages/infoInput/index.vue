@@ -78,8 +78,8 @@
     <div class="view-btn" @click="resultHandler">
         查看结果
     </div>
-    <popover @closeModal="closeModal" :isShow="isShow" :promotionalList="list" popType="promotional" :isAnim="false">
-      <span slot="title">提示信息</span>
+    <popover @closeModal="closeModal" :isShow="isShow" :promotionalList="list" popType="promotional" :isUnPass="true">
+      <span slot="title">温馨提示</span>
       <span slot="content">很抱歉，没有适合你的语言课</span>
     </popover>
   </div>
