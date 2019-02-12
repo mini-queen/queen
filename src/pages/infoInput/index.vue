@@ -80,7 +80,7 @@
     </div>
     <popover @closeModal="closeModal" :isShow="isShow" :promotionalList="list" popType="promotional" :isUnPass="true">
       <span slot="title">温馨提示</span>
-      <span slot="content">很抱歉，没有适合你的语言课</span>
+      <span slot="content">很抱歉，没有适合您的语言课</span>
     </popover>
   </div>
 </template>
