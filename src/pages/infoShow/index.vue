@@ -6,7 +6,7 @@
         <span class="title">学习课程时长：</span>
         <FormField
           name="period"
-          :value="formData.period+' 周'"
+          :value="formData.period+' 周  ' + (casMap[formData.cas] || '')"
           :disabled="true"
         />
       </div>
@@ -46,37 +46,48 @@
         <span class="title" decode="emsp">学&emsp;&emsp;&emsp;&emsp;费：</span>
         <FormField
           name="fee"
-          :value="formData.fee+'￡'"
+          :value="formData.fee+'英镑'"
           :disabled="true"
         />
       </div>
     </div>
     <div class="bottom-tips">
-      <span class="info">* 更多语言课详情请阅读微信文章或官网</span>
+      
+      <span class="info">更多语言课详情请登录英国女王大学官网</span>
+      <span selectable='true' @tap='copy'>
+        {{site}}，输入pre-sessional进行查看。
+      </span>
+      <!-- <span class="info">* 更多语言课详情请阅读微信文章或官网</span>
       <span class="site" selectable='true' @tap='copy'>* {{site}}</span>
-      <span class="duty" decode="copy">* &copy; 2019 英国女王大学 版权所有</span>
+      <span class="duty" decode="copy">* &copy; 2019 英国女王大学 版权所有</span> -->
     </div>
   </div>
 </template>
 <script>
   import FormField from '@/components/FormField'
-
+  import { mapGetters } from 'vuex'
   export default {
     data () {
       return {
-        formData: {
-          period: '3',
-          applyDeadline: '5月17日',
-          sureDeadline: '5月24日',
-          arrivalDate: '7月1日',
-          courseDate: '6月24日 — 8月30日',
-          fee: 4250
+        // formData: {
+        //   period: '3',
+        //   applyDeadline: '5月17日',
+        //   sureDeadline: '5月24日',
+        //   arrivalDate: '7月1日',
+        //   courseDate: '6月24日 — 8月30日',
+        //   fee: 4250
+        // },
+        casMap: {
+          'single': '单个CAS',
+          'union': '联合CAS'
         },
         site: 'http://www.qub.ac.uk'
       }
     },
     computed: {
-  
+      ...mapGetters({
+        formData: 'courseInfo'
+      })
     },
     components: {
       FormField
@@ -88,9 +99,6 @@
   
     },
     methods: {
-      startHandler: function () {
-        console.log('开始')
-      },
       copy: function (e) {
         console.log(e)
         wx.setClipboardData({
@@ -164,8 +172,8 @@
     font-size: @fsbase;
     color: @grey;
     .info,.site,.duty {
-      width: 500rpx;
-      text-align: left;
+      width: 800rpx;
+      // text-align: left;
       display: block;
     }
   }

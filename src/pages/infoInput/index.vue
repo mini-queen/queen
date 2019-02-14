@@ -78,14 +78,21 @@
     <div class="view-btn" @click="resultHandler">
         查看结果
     </div>
+    <popover @closeModal="closeModal" :isShow="isShow" :promotionalList="list" popType="promotional" :isUnPass="true">
+      <span slot="title">温馨提示</span>
+      <span slot="content">很抱歉，没有适合您的语言课</span>
+    </popover>
   </div>
 </template>
 <script>
   import FormField from '@/components/FormField'
   import comCheckbox from '@/components/checkbox'
+  import popover from '@/components/popover'
+
   export default {
     data () {
       return {
+        isShow: false,
         formData: {
           requireId: -1,
           isSubmit: false
@@ -111,7 +118,7 @@
 
     },
     components: {
-      FormField, comCheckbox
+      FormField, comCheckbox, popover
     },
     mounted () {
 
@@ -120,8 +127,10 @@
 
     },
     methods: {
+      closeModal () {
+        this.isShow = false
+      },
       resultHandler () {
-        console.log('结果', this.formData)
         if (this.formData.requireId === -1) {
           return wx.showToast({title: '请选择学位课程要求', icon: 'none'})
         }
@@ -140,12 +149,25 @@
         if (!this.formData.speakingScore) {
           return wx.showToast({title: '请填写口语分数', icon: 'none'})
         }
+        let arr = Object.values(this.formData).filter(item => typeof item === 'string')
+        if (arr.some(item => item < 5)) {
+          this.isShow = true
+          return false
+          // return wx.showToast({title: '很抱歉，没有适合您的语言课', icon: 'none'})
+        }
         wx.cloud.callFunction({name: 'course', data: this.formData}).then((res) => {
-          console.log('res>>', res)
+          if (res.result.courses.length === 0) {
+            this.isShow = true
+            return false
+            // return wx.showToast({title: '很抱歉，没有适合您的语言课', icon: 'none'})
+          } else {
+            console.log('res>>', res.result.courses)
+            this.$store.commit('COURSEINFO_GET', res.result.courses)
+            wx.navigateTo({
+              url: '/pages/infoShow/main'
+            })
+          }
         })
-        /* wx.navigateTo({
-          url: '/pages/infoShow/main'
-        }) */
       },
       bindPickerChange (e) {
         let index = e.target.value

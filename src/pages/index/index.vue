@@ -7,11 +7,13 @@
       根据学生自身语音水平和学位课程要求，语音课课程长度分别为10周6周和4周。
     </div>
     <div class="article2">
-      点击开始查询你的语言课课程长度：
+      点击开始查询适合您的语言课课程长度：
     </div>
     <div class="start-btn" @click="startHandler">
         开始
     </div>
+    <img class="logo-top" src="/static/images/queen-white.png" mode="widthFix">
+    <img class="logo-bottom" src="/static/images/queen-red.png" mode="widthFix">
   </div>
 </template>
 <script>
@@ -82,6 +84,18 @@
       color: @color-white;
       font-size: @fsh2;
       background-color: @light-primary;
-    }
+  }
+  .logo-bottom {
+    width: 300rpx;
+    position: fixed;
+    left: 20rpx;
+    bottom: 20rpx;
+  }
+  .logo-top {
+    width: 300rpx;
+    position: fixed;
+    left: 20rpx;
+    top: 20rpx;
+  }
 }
 </style>
