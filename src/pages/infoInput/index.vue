@@ -153,13 +153,13 @@
         if (arr.some(item => item < 5)) {
           this.isShow = true
           return false
-          // return wx.showToast({title: '很抱歉，没有适合你的语言课', icon: 'none'})
+          // return wx.showToast({title: '很抱歉，没有适合您的语言课', icon: 'none'})
         }
         wx.cloud.callFunction({name: 'course', data: this.formData}).then((res) => {
           if (res.result.courses.length === 0) {
             this.isShow = true
             return false
-            // return wx.showToast({title: '很抱歉，没有适合你的语言课', icon: 'none'})
+            // return wx.showToast({title: '很抱歉，没有适合您的语言课', icon: 'none'})
           } else {
             console.log('res>>', res.result.courses)
             this.$store.commit('COURSEINFO_GET', res.result.courses)
