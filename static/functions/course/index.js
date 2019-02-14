@@ -98,6 +98,14 @@ const getCourse = async (courseId) => {
     return []
   }
 }
+
+const splitDate = (dataString, separator) => {
+  separator = separator || '-'
+  return dataString.split(separator)
+}
+const getFullDate = (fullYear, dataArr) => {
+  return `${fullYear}年${dataArr[0]}月${dataArr[1]}`
+}
 // 云函数入口函数
 
 /**
@@ -127,6 +135,22 @@ exports.main = async (event, context) => {
       break
   }
   courses = await getCourse(courseId)
+  if (Array.isArray(courses) && courses.length) {
+    let applyDeadlineArr, arrivalDateArr, courseDateArr, sureDeadlineArr, courseDateStart, courseDateEnd
+    const fullYear = new Date().getFullYear()
+    courses.forEach((item) => {
+      applyDeadlineArr = splitDate(item.applyDeadline)
+      arrivalDateArr = splitDate(item.arrivalDate)
+      sureDeadlineArr = splitDate(item.sureDeadline)
+      courseDateArr = splitDate(item.courseDate, '~')
+      courseDateStart = splitDate(courseDateArr[0])
+      courseDateEnd = splitDate(courseDateArr[1])
+      item.applyDeadline = getFullDate(fullYear, applyDeadlineArr)
+      item.arrivalDate = getFullDate(fullYear, arrivalDateArr)
+      item.sureDeadline = getFullDate(fullYear, sureDeadlineArr)
+      item.courseDate = `${getFullDate(fullYear, courseDateStart)} ~ ${getFullDate(fullYear, courseDateEnd)}`
+    })
+  }
   return {
     event,
     openid: wxContext.OPENID,
