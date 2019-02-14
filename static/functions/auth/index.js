@@ -22,6 +22,9 @@ const insertUser = async (userInfo) => {
   return user
 }
 // 云函数入口函数
+/**
+ * params: userInfo : Object<user>  code:string
+ * */
 exports.main = async (event) => {
   const userInfo = event.currentUser
   const code = event.code

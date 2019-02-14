@@ -12,6 +12,9 @@ const authToken = async (token) => {
 }
 
 // 云函数入口函数
+/**
+ * params: token : string
+ * */
 exports.main = async (event) => {
   const token = event.token
   const result = await authToken(token)
