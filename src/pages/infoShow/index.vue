@@ -1,54 +1,57 @@
 <template>
   <div class="container">
-    <div class="result-title h1">适合您的语言课</div>
-    <div class="fields">
-      <div class="field field-border">
-        <span class="title">学习课程时长：</span>
-        <FormField
-          name="period"
-          :value="formData.period+' 周  ' + (casMap[formData.cas] || '')"
-          :disabled="true"
-        />
-      </div>
-      <div class="field">
-        <span class="title">申请截止日期：</span>
-        <FormField
-          name="applyDeadline"
-          :value="formData.applyDeadline"
-          :disabled="true"
-        />
-      </div>
-      <div class="field">
-        <span class="title">确认截止日期：</span>
-        <FormField
-          name="sureDeadline"
-          :value="formData.sureDeadline"
-          :disabled="true"
-        />
-      </div>
-      <div class="field">
-        <span class="title">最晚抵校日期：</span>
-        <FormField
-          name="arrivalDate"
-          :value="formData.arrivalDate"
-          :disabled="true"
-        />
-      </div>
-      <div class="field">
-        <span class="title">学习课程日期：</span>
-        <FormField
-          name="courseDate"
-          :value="formData.courseDate"
-          :disabled="true"
-        />
-      </div>
-      <div class="field">
-        <span class="title" decode="emsp">学&emsp;&emsp;&emsp;&emsp;费：</span>
-        <FormField
-          name="fee"
-          :value="formData.fee+'英镑'"
-          :disabled="true"
-        />
+    <div class="content">
+      <div class="result-title h1">适合您的语言课</div>
+      <div class="fields" v-for="(formData,index) in formDatas" :key="index">
+        <div v-if="index>0" class="or h2">或</div>
+        <div class="field field-border">
+          <span class="title">学习课程时长：</span>
+          <FormField
+            name="period"
+            :value="formData.period+' 周  ' + (casMap[formData.cas] || '')"
+            :disabled="true"
+          />
+        </div>
+        <div class="field">
+          <span class="title">申请截止日期：</span>
+          <FormField
+            name="applyDeadline"
+            :value="formData.applyDeadline"
+            :disabled="true"
+          />
+        </div>
+        <div class="field">
+          <span class="title">确认截止日期：</span>
+          <FormField
+            name="sureDeadline"
+            :value="formData.sureDeadline"
+            :disabled="true"
+          />
+        </div>
+        <div class="field">
+          <span class="title">最晚抵校日期：</span>
+          <FormField
+            name="arrivalDate"
+            :value="formData.arrivalDate"
+            :disabled="true"
+          />
+        </div>
+        <div class="field">
+          <span class="title">学习课程日期：</span>
+          <FormField
+            name="courseDate"
+            :value="formData.courseDate"
+            :disabled="true"
+          />
+        </div>
+        <div class="field">
+          <span class="title" decode="emsp">学&emsp;&emsp;&emsp;&emsp;费：</span>
+          <FormField
+            name="fee"
+            :value="formData.fee+'英镑'"
+            :disabled="true"
+          />
+        </div>
       </div>
     </div>
     <div class="bottom-tips">
@@ -87,7 +90,7 @@
     },
     computed: {
       ...mapGetters({
-        formData: 'courseInfo'
+        formDatas: 'courseInfo'
       })
     },
     components: {
@@ -117,7 +120,19 @@
 </script>
 
 <style lang="less" scope>
+page {
+  height: 100%;
+}
 .container {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  .content {
+    flex: 1;
+  }
+  .or {
+    margin: 30rpx 0;
+  }
   .result-title {
     padding: 30rpx 0 40rpx 0;
   }
@@ -166,10 +181,11 @@
   }
 
   .bottom-tips {
-    position: fixed;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 30rpx;
+    // position: fixed;
+    // left: 50%;
+    // transform: translateX(-50%);
+    // bottom: 30rpx;
+    padding: 30rpx;
     font-size: @fsbase;
     color: @grey;
     .info,.site {

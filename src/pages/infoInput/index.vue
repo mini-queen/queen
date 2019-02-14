@@ -169,13 +169,11 @@
           return wx.showToast({title: '请填写口语分数', icon: 'none'})
         }
         let arr = Object.values(this.formData).filter(item => typeof item === 'string')
-  
-        if (!this.checkScore(arr)) return wx.showToast({title: '雅思总分填写有误', icon: 'none'})
-        if (arr.some(item => item < 5)) {
-          this.isShow = true
-          return false
-          // return wx.showToast({title: '很抱歉，没有适合您的语言课', icon: 'none'})
+        if (arr.some(item => item < 0 || item > 9)) {
+          return wx.showToast({title: '雅思成绩输入有误,请检查', icon: 'none'})
         }
+        if (!this.checkScore(arr)) return wx.showToast({title: '雅思总分输入有误,请检查', icon: 'none'})
+  
         wx.cloud.callFunction({name: 'course', data: this.formData}).then((res) => {
           if (res.result.courses.length === 0) {
             this.isShow = true

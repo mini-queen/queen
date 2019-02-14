@@ -12,8 +12,8 @@
     <div class="start-btn" @click="startHandler">
         开始
     </div>
-    <img class="logo-top" src="/static/images/queen-white.png" mode="widthFix">
-    <img class="logo-bottom" src="/static/images/queen-red.png" mode="widthFix">
+    <!-- <img class="logo-top" src="/static/images/queen-white.png" mode="widthFix">
+    <img class="logo-bottom" src="/static/images/queen-red.png" mode="widthFix"> -->
   </div>
 </template>
 <script>
@@ -62,7 +62,7 @@
   .article1 {
     .font-base();
     text-align: left;
-    text-indent: 2em;
+    // text-indent: 2em;
     padding: 20rpx;
     line-height: 60rpx;
   }
@@ -70,7 +70,7 @@
     .font-base();
     margin-bottom: 80rpx;
     text-align: left;
-    text-indent: 2em;
+    // text-indent: 2em;
     padding: 20rpx;
   }
   .start-btn {

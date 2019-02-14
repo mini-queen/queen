@@ -5,7 +5,7 @@ const state = {
 }
 
 const getters = {
-  courseInfo: state => state.course[0]
+  courseInfo: state => state.course
 }
 
 const actions = {
