@@ -31,24 +31,22 @@
       getInfo (e) {
         if (e.target.userInfo) {
           const userInfo = e.target.userInfo
-          console.log('用户信息 >>', e.target.userInfo, userInfo)
           wx.login({
             success: (login) => {
             // 调用接口获取登录凭证（code）。通过凭证进而换取用户登录态信息，包括用户的唯一标识（openid）
             // https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/login.html
-              console.log('登录码', login.code)
               let data = {
                 currentUser: userInfo,
                 code: login.code
               }
               wx.cloud.callFunction({name: 'auth', data}).then((res) => {
                 console.log('返回结果', res.result.token.data[0].token)
-              })
-              // 模拟存储后端token
-              wx.setStorageSync('token', login.code)
-              // 授权成功后，并跳转进入小程序首页
-              wx.reLaunch({
-                url: '/pages/index/main'
+                // 存储后端token
+                wx.setStorageSync('token', res.result.token.data[0].token)
+                // 授权成功后，并跳转进入小程序首页
+                wx.reLaunch({
+                  url: '/pages/index/main'
+                })
               })
             },
             fail: (error) => {
