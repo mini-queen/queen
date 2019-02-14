@@ -14,8 +14,9 @@
   "dependencies": {
     "flyio": "^0.6.0",
     "mpvue": "^1.0.11",
-    "vuex": "^3.0.1",
-    "rxjs-wx": "^1.1.1"
+    "rxjs-wx": "^1.1.1",
+    "uuid": "^3.3.2",
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "babel-core": "^6.22.1",

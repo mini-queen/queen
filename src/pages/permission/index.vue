@@ -12,25 +12,26 @@
   export default {
     data () {
       return {
-  
+
       }
     },
     computed: {
-  
+
     },
     components: {
-  
+
     },
     mounted () {
-  
+
     },
     onShow () {
-  
+
     },
     methods: {
       getInfo (e) {
         if (e.target.userInfo) {
-          console.log('用户信息', e.target.userInfo)
+          const userInfo = e.target.userInfo
+          console.log('用户信息 >>', e.target.userInfo, userInfo)
           wx.login({
             success: (login) => {
             // 调用接口获取登录凭证（code）。通过凭证进而换取用户登录态信息，包括用户的唯一标识（openid）
@@ -76,7 +77,7 @@
       width: 400rpx;
     }
   }
-  
+
   .sure-btn {
       display: inline-block;
       width: 61.8%;
