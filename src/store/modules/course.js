@@ -5,7 +5,7 @@ const state = {
 }
 
 const getters = {
-  courseInfo: state => state.course.data[0] // 结构待调整
+  courseInfo: state => state.course[0]
 }
 
 const actions = {

@@ -53,9 +53,10 @@
     </div>
     <div class="bottom-tips">
       
-      <span class="info">更多语言课详情请登录英国女王大学官网</span>
-      <span selectable='true' @tap='copy'>
-        {{site}}，输入pre-sessional进行查看。
+      <span class="info" selectable='true' @tap='copy'>* 更多语言课详情请登录英国女王大学官网 {{site}}，输入pre-sessional进行查看。</span>
+  
+      <span class="duty">
+        * 免责条款：小程序推荐结果仅供参考，学生申请后并取得录取的课程以INTO Queen's入学部的录取通知书为准。
       </span>
       <!-- <span class="info">* 更多语言课详情请阅读微信文章或官网</span>
       <span class="site" selectable='true' @tap='copy'>* {{site}}</span>
@@ -152,7 +153,7 @@
   }
 
   .field .title {
-    width: 290rpx;
+    width: 220rpx;
     height: 60rpx;
     line-height: 60rpx;
     font-size: 30rpx;
@@ -171,10 +172,17 @@
     bottom: 30rpx;
     font-size: @fsbase;
     color: @grey;
-    .info,.site,.duty {
-      width: 800rpx;
-      // text-align: left;
+    .info,.site {
+      width: 600rpx;
+      text-align: left;
       display: block;
+      margin: 30rpx auto;
+    }
+    .duty {
+      width: 600rpx;
+      display: block;
+      margin: 0 auto;
+      text-align: left;
     }
   }
 }

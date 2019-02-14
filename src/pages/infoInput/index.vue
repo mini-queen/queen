@@ -130,6 +130,25 @@
       closeModal () {
         this.isShow = false
       },
+      checkScore (arr) {
+        // let newArr = arr.filter(item => item !== this.formData.totalScore)
+        let newArr = [this.formData.listeningScore, this.formData.readingScore, this.formData.writingScore, this.formData.speakingScore]
+        let avgScore = newArr.reduce((acc, num) => acc + +num, 0) / (newArr.length)
+        let avgStr = avgScore + ''
+        let avgStrArr = avgStr.split('.')
+        if (avgStrArr.length === 2) {
+          let level1 = `${avgStrArr[0]}.25`
+          let level2 = `${avgStrArr[0]}.75`
+          if (avgStr < level1) {
+            avgScore = avgStrArr[0]
+          } else if (avgStr >= level1 && avgStr < level2) {
+            avgScore = `${avgStrArr[0]}.5`
+          } else {
+            avgScore = `${+avgStrArr[0] + 1}`
+          }
+        }
+        return (+avgScore === +this.formData.totalScore)
+      },
       resultHandler () {
         if (this.formData.requireId === -1) {
           return wx.showToast({title: '请选择学位课程要求', icon: 'none'})
@@ -150,6 +169,8 @@
           return wx.showToast({title: '请填写口语分数', icon: 'none'})
         }
         let arr = Object.values(this.formData).filter(item => typeof item === 'string')
+  
+        if (!this.checkScore(arr)) return wx.showToast({title: '雅思总分填写有误', icon: 'none'})
         if (arr.some(item => item < 5)) {
           this.isShow = true
           return false
