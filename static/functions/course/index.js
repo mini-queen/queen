@@ -6,8 +6,8 @@ cloud.init()
 const getRequirId0Course = (totalScore, singleScoreArr, isSubmit) => {
   let courseId = null
   if (totalScore === 5.5) {
-    singleScoreArr.sort((a, b) => { return Number(b) - Number(a) })
     singleScoreArr.push('4.99')
+    singleScoreArr.sort((a, b) => { return Number(b) - Number(a) })
     if (singleScoreArr.indexOf('4.99') === 4) {
       courseId = isSubmit ? ['1'] : ['2']
     }
@@ -26,7 +26,7 @@ const getRequirId0Course = (totalScore, singleScoreArr, isSubmit) => {
   if (totalScore === 6.5) {
     singleScoreArr.push('5.49')
     singleScoreArr.sort((a, b) => { return Number(b) - Number(a) })
-    if (singleScoreArr.indexOf('5.49') === 4) {
+    if (singleScoreArr.indexOf('5.49') === 4 && !isSubmit) {
       courseId = ['5']
     }
   }
@@ -52,7 +52,7 @@ const getRequirId1Course = (totalScore, singleScoreArr, isSubmit) => {
   if (totalScore === 6.0) {
     singleScoreArr.push('5.49')
     singleScoreArr.sort((a, b) => { return Number(b) - Number(a) })
-    if (singleScoreArr.indexOf('5.49') === 4) {
+    if (singleScoreArr.indexOf('5.49') === 4 && !isSubmit) {
       courseId = ['5']
     }
   }
@@ -78,7 +78,7 @@ const getRequirId2Course = (totalScore, singleScoreArr, isSubmit) => {
   if (totalScore === 6.5) {
     singleScoreArr.push('5.99')
     singleScoreArr.sort((a, b) => { return Number(b) - Number(a) })
-    if (singleScoreArr.indexOf('5.99') === 4) {
+    if (singleScoreArr.indexOf('5.99') === 4 && !isSubmit) {
       courseId = ['5']
     }
   }
@@ -124,15 +124,9 @@ exports.main = async (event, context) => {
   const isSubmit = event.isSubmit
   let courseId, courses
   switch (Number(requireId)) {
-    case 0:
-      courseId = getRequirId0Course(totalScore, singleScoreArr, isSubmit)
-      break
-    case 1:
-      courseId = getRequirId1Course(totalScore, singleScoreArr, isSubmit)
-      break
-    case 2:
-      courseId = getRequirId2Course(totalScore, singleScoreArr, isSubmit)
-      break
+    case 0: courseId = getRequirId0Course(totalScore, singleScoreArr, isSubmit); break
+    case 1:courseId = getRequirId1Course(totalScore, singleScoreArr, isSubmit); break
+    case 2:courseId = getRequirId2Course(totalScore, singleScoreArr, isSubmit); break
   }
   courses = await getCourse(courseId)
   if (Array.isArray(courses) && courses.length) {
@@ -158,6 +152,5 @@ exports.main = async (event, context) => {
     unionid: wxContext.UNIONID,
     context: context,
     courses: courses
-    // params: {totalScore, singleScoreArr, isSubmit, courseId}
   }
 }
