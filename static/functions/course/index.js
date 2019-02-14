@@ -104,7 +104,7 @@ const splitDate = (dataString, separator) => {
   return dataString.split(separator)
 }
 const getFullDate = (fullYear, dataArr) => {
-  return `${fullYear}年${dataArr[0]}月${dataArr[1]}`
+  return `${fullYear}年${dataArr[0]}月${dataArr[1]}日`
 }
 // 云函数入口函数
 
