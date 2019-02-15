@@ -6,12 +6,12 @@ cloud.init()
 
 const appSecret = 'queen-mini'
 
-const getUserInfo = async (userInfo) => {
+const getUserInfo = async (nickName) => {
   const db = cloud.database()
   let user = await db.collection('user').where({
-    courseNum: userInfo.nickName
+    nickName: nickName
   }).get()
-  return user
+  return user && user.data[0]
 }
 
 const insertUser = async (userInfo) => {
@@ -29,7 +29,7 @@ exports.main = async (event) => {
   const userInfo = event.currentUser
   const code = event.code
   let user = await getUserInfo(userInfo.nickName)
-  if (!user || !user.data.length) {
+  if (!user) {
     user = {
       ...userInfo,
       code: code,
@@ -37,5 +37,5 @@ exports.main = async (event) => {
     }
     await insertUser(user)
   }
-  return {token: user.token}
+  return {token: user.token, nickName: user.nickName}
 }
