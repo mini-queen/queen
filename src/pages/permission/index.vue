@@ -40,9 +40,9 @@
                 code: login.code
               }
               wx.cloud.callFunction({name: 'auth', data}).then((res) => {
-                console.log('返回结果', res)
+                console.log('返回结果', res.result.token)
                 // 存储后端token
-                // wx.setStorageSync('token', res.result.token.data[0].token)
+                wx.setStorageSync('token', res.result.token)
                 // 授权成功后，并跳转进入小程序首页
                 wx.reLaunch({
                   url: '/pages/index/main'
