@@ -30,21 +30,23 @@
 
     },
     mounted () {
-      let token = wx.getStorageSync('token')
-      if (!token) {
-        wx.reLaunch({
-          url: '/pages/permission/main'
-        })
-      }
+  
     },
     onShow () {
 
     },
     methods: {
       startHandler: function () {
-        wx.navigateTo({
-          url: '/pages/infoInput/main'
-        })
+        let token = wx.getStorageSync('token')
+        if (!token) {
+          wx.reLaunch({
+            url: '/pages/permission/main'
+          })
+        } else {
+          wx.navigateTo({
+            url: '/pages/infoInput/main'
+          })
+        }
       }
     }
   }

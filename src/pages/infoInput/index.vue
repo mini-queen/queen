@@ -73,7 +73,7 @@
 
     </div>
     <div class="sure-info">
-      <comCheckbox :value="formData.isSubmit" @changeHandle="checkHandler">  您是否已向大学提交本科学位证+本科毕业证+大学四年完整成绩单+已缴纳录取通知书上要求的£400押金（如申请专业有押金要求）?</comCheckbox>
+      <comCheckbox :value="formData.isSubmit" @changeHandle="checkHandler">  您已向大学提交本科学位证+本科毕业证+大学四年完整成绩单+已缴纳录取通知书上要求的£400押金（如申请专业有押金要求）?</comCheckbox>
     </div>
     <div class="view-btn" @click="resultHandler">
         查看结果
